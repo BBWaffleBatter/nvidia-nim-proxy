@@ -35,7 +35,7 @@ const MODEL_MAPPING = {
   'nemotron-lightning':'nvidia/nemotron-3.5-lightning-30b-a3b',
 
   // --- GLM (Z.ai, confirmed live) ---
-  'glm-pro':           'z-ai/glm-5.2',                        // 8M calls/mo, confirmed ✅
+  'glm-pro':           'z-ai/glm-5.3',                        // 8M calls/mo, confirmed ✅
 
   // --- MiniMax (confirmed live) ---
   'minimax':           'minimaxai/minimax-m3',                 // 10M calls/mo, confirmed ✅
@@ -65,7 +65,7 @@ const MODEL_MAPPING = {
 // deepseek-flash removed since it's deprecated
 const FALLBACK_CHAIN = [
   'minimaxai/minimax-m3',              // 10M calls/mo — most reliable free model
-  'z-ai/glm-5.2',                      // 8M calls/mo — confirmed working
+  'z-ai/glm-5.3',                      // 8M calls/mo — confirmed working
   'nvidia/nemotron-3-ultra-550b-a55b', // 52M calls/mo — highest usage on NIM
   'stepfun-ai/step-3.7-flash',         // 7M calls/mo — fast fallback
   'nvidia/nemotron-3.5-lightning-30b-a3b', // Newest, fastest
@@ -122,7 +122,7 @@ const THINKING_MODELS = [
   'deepseek-ai/deepseek-v4-pro',
   'nvidia/nemotron-3-ultra-550b-a55b',
   'nvidia/nemotron-3.5-lightning-30b-a3b',
-  'z-ai/glm-5.2',
+  'z-ai/glm-5.3',
   'minimaxai/minimax-m3',
   'stepfun-ai/step-3.7-flash',
   'thinkingmachines/inkling',
@@ -201,7 +201,7 @@ app.get('/', (req, res) => {
       best_free:      'minimax → minimax-m3 (10M calls/mo)',
       most_popular:   'gpt-3.5-turbo → nemotron-ultra-550b (52M calls/mo)',
       newest:         'gpt-4o-mini → nemotron-lightning-30b (Aug 2026)',
-      confirmed_rp:   'glm-pro → glm-5.2 | minimax → minimax-m3'
+      confirmed_rp:   'glm-pro → glm-5.3 | minimax → minimax-m3'
     }
   });
 });
@@ -268,7 +268,7 @@ app.post('/v1/chat/completions', async (req, res) => {
         } else if (modelLower.includes('claude') || modelLower.includes('gemini') || modelLower.includes('70b')) {
           nimModel = 'minimaxai/minimax-m3';
         } else {
-          nimModel = 'z-ai/glm-5.2'; // Most reliable confirmed free model
+          nimModel = 'z-ai/glm-5.3'; // Most reliable confirmed free model
         }
       }
     }
@@ -484,7 +484,7 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`   • Fallback triggers: 429, 503, 410`);
   console.log('');
   console.log('🎯 Confirmed Working Models (August 2026):');
-  console.log('   • glm-pro          → GLM-5.2          (8M calls/mo) ✅');
+  console.log('   • glm-pro          → GLM-5.3          (8M calls/mo) ✅');
   console.log('   • minimax          → MiniMax M3        (10M calls/mo) ✅');
   console.log('   • gpt-3.5-turbo    → Nemotron Ultra 550B (52M calls/mo) ✅');
   console.log('   • gpt-4o-mini      → Nemotron Lightning 30B (NEW Aug 2026) ✅');
