@@ -51,8 +51,8 @@ const MODEL_MAPPING = {
   'gpt-4':              'z-ai/glm-5.3',
 
   // --- Moonshot Kimi ---
+  'kimi-k3.1':          'moonshotai/kimi-k3.1-pro',
   'kimi-k3':            'moonshotai/kimi-k3',                 // ~2.8T MoE, 1M ctx (heavily rate limited on free tier)
-  'kimi':               'moonshotai/kimi-k3',
   'kimi-k2.6':          'moonshotai/kimi-k2.6',               // 262K ctx, more reliable than K3
   'claude-3-opus':      'moonshotai/kimi-k3',
 
@@ -177,6 +177,7 @@ function stripUserBreakout(text) {
 const THINKING_MODELS = [
   'deepseek-ai/deepseek-v4-pro-0813',
   'deepseek-ai/deepseek-v4.1-flash',
+  'moonshotai/kimi-k3.1-pro',
   'moonshotai/kimi-k3',
   'moonshotai/kimi-k2.6',
   'z-ai/glm-5.3',
@@ -302,7 +303,7 @@ app.get('/', (req, res) => {
     featured_models: {
       best_quality:   'gpt-4 → z-ai/glm-5.3 (1M ctx)',
       best_roleplay:  'glm-5.3 / gpt-4o → z-ai/glm-5.3 (1M ctx)',
-      newest_big:     'kimi-k3 → moonshotai/kimi-k3 (often rate limited)',
+      newest_big:     'kimi-k3.1 → moonshotai/kimi-k3.1',
       most_popular:   'gpt-3.5-turbo → nemotron-3-ultra-550b',
       fastest:        'gpt-4o-mini → nemotron-3.5-lightning-30b | glm-flash → glm-5.3-flash',
       tip:            'You can also send any full NIM id, e.g. "z-ai/glm-5.3"'
@@ -560,7 +561,7 @@ app.listen(PORT, '0.0.0.0', async () => {
   console.log('   • gpt-4o           → GLM-5.3');
   console.log('   • glm-flash        → GLM-5.3 Flash');
   console.log('   • deepseek-flash   → DeepSeek V4.1 Flash');
-  console.log('   • kimi-k3          → Kimi K3 (often 429 on free tier)');
+  console.log('   • kimi-k3.1        → Kimi K3.1');
   console.log('   • gpt-3.5-turbo    → Nemotron 3 Ultra 550B');
   console.log('   • gpt-4o-mini      → Nemotron 3.5 Lightning 30B');
   console.log('   • step-5           → Step-5 Preview');
