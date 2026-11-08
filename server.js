@@ -83,6 +83,9 @@ const MODEL_MAPPING = {
   'claude-3-sonnet':    'openai/gpt-oss-20b',                 // only the 20B is left
   'gpt-oss':            'openai/gpt-oss-20b',
 
+  // --- Mistral ---
+  'mistral':            'mistralai/mistral-large-4-1t-a52b'
+
   // --- Legacy Mistral aliases (medium/small no longer listed) ---
   'mistral-medium':     'mistralai/mistral-large',
   'mistral-small':      'nvidia/nemotron-3.5-lightning-30b-a3b',
@@ -187,6 +190,7 @@ const THINKING_MODELS = [
   'nvidia/nemotron-3.5-lightning-30b-a3b',
   'nvidia/nemotron-3.5-super-vl-120b-a12b',
   'stepfun-ai/step-5-preview',
+  'mistralai/mistral-large-4-1t-a52b',
 ];
 
 // Adds the right "thinking on" switch for each model family (NIM reads chat_template_kwargs)
