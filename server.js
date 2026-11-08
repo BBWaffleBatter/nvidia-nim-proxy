@@ -84,7 +84,7 @@ const MODEL_MAPPING = {
   'gpt-oss':            'openai/gpt-oss-20b',
 
   // --- Mistral ---
-  'mistral':            'mistralai/mistral-large-4-1t-a52b'
+  'mistral':            'mistralai/mistral-large-4-1t-a52b',
 
   // --- Legacy Mistral aliases (medium/small no longer listed) ---
   'mistral-medium':     'mistralai/mistral-large',
